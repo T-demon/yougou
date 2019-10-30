@@ -19,10 +19,10 @@
     </swiper>
   </view>
 </view>
-<!--  -->
+<!-- 菜单区域 -->
 <view class="menus">
   <navigator url="" wx:for="{{menus}}" wx:key="{{index}}">
-    <image src="{{item}}"></image>
+    <image src="{{item.image_src}}"></image>
   </navigator>
 </view>
 
