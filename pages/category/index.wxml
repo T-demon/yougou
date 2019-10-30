@@ -1,2 +1,17 @@
 <!--pages/category/index.wxml-->
-<text>pages/category/index.wxml</text>
+<top/>
+<search/>
+<view class="category">
+  <view class="menu">
+    <view class="menu-item {{ current === index ? 'active': ''}}" 
+    wx:for="{{[1,1,1,1,1,1,1,1,1,1,1]}}" 
+    wx:key="index"
+    bindtap="handleChange"
+    data-index="{{index}}"
+    >
+      商品列表</view>
+  </view>
+  <view class="right">
+    展示区域
+    </view>
+</view>

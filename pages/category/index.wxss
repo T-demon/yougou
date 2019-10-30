@@ -1,1 +1,37 @@
 /* pages/category/index.wxss */
+.category{
+   display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top:238rpx;
+  bottom:0;
+}
+
+.menu{
+  width: 200rpx;
+  height:100%;
+  background:#eee;
+  overflow-y: auto;
+}
+
+.menu-item{
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+} 
+.active{
+  background: #fff;
+  color:red;
+  position: relative;
+}
+
+.active::before{
+  display: block;
+  content: "";
+  width:3px;
+  height: 80rpx;
+  background:red;
+  position: absolute;
+  left: 0;
+  top: 10rpx;
+} 	
