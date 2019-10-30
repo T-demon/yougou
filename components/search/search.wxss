@@ -1,0 +1,11 @@
+/* components/search/search.wxss */
+.header{
+  background-color: #EB4450;
+  padding: 20rpx 16rpx ;
+}
+.header-input{
+  height: 60rpx;
+  border: 1px solid white;
+  background-color:white;
+  border-radius: 10rpx;
+}

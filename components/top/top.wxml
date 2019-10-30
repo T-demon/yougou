@@ -1,0 +1,4 @@
+<!--components/top/top.wxml-->
+<view class="top">
+  <view class="top_title">优购</view>
+</view>

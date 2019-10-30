@@ -1,0 +1,12 @@
+/* components/top/top.wxss */
+.top{
+  display: flex;
+  justify-content: center;
+  height: 128rpx;
+  background-color: #EB4450;
+}
+.top_title{
+  margin-top:63rpx;
+  color: white;
+  font-size: 38rpx;
+}

@@ -1,26 +1,5 @@
 /**index.wxss**/
 
-.top{
-  display: flex;
-  justify-content: center;
-  height: 128rpx;
-  background-color: #EB4450;
-}
-.top_title{
-  margin-top:63rpx;
-  color: white;
-  font-size: 38rpx;
-}
-.header{
-  background-color: #EB4450;
-  padding: 20rpx 16rpx ;
-}
-.header-input{
-  height: 60rpx;
-  border: 1px solid white;
-  background-color:white;
-  border-radius: 10rpx;
-}
 
 .page-section image{
   height: 100%;

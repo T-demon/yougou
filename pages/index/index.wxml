@@ -1,11 +1,5 @@
-<view class="top">
-  <view class="top_title">优购</view>
-</view>
-<!--  -->
-<view class="header">
-  <input class="header-input" />
-  <!-- <icon type="search"></icon> -->
-</view>
+<top/>
+<search/>
 <!-- 轮播图 -->
 <view>
   <view class="page-section page-section-spacing swiper">

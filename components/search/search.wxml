@@ -1,0 +1,6 @@
+<!--components/search/search.wxml-->
+<!--头部-->
+<view class="header">
+  <input class="header-input" />
+  <!-- <icon type="search"></icon> -->
+</view>
