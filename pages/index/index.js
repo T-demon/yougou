@@ -6,7 +6,8 @@ const app = getApp()
 Page({
   data: {
     background: [],
-    menus: []
+    menus: [],
+    floor:[]
   },
 
   // --------------
@@ -21,14 +22,41 @@ Page({
       })
     }),
 
-      request({
+    request({
         url: "/api/public/v1/home/catitems"
-      }).then(res => {
+    }).then(res => {
         const { message } = res.data;
         this.setData({
           menus: message
         })
-      })
+    }),
+
+request({
+      url:"https://api.zbztb.cn/api/public/v1/home/floordata"
+}).then(res=>{
+  const {message} = res.data
+  this.setData({
+    floor:message
+  })
+})
+
+
+
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 })

@@ -24,6 +24,7 @@
 
 .page-section image{
   height: 100%;
+  width: 100%;
 }
 
 .menus{
