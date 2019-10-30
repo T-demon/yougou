@@ -2,6 +2,7 @@
 .top{
   display: flex;
   justify-content: center;
+  width: 100%;
   height: 138rpx;
   background-color: #EB4450;
 }
