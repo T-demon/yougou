@@ -18,7 +18,7 @@
   <view class="context" wx:for="{{list[current].children}}" wx:key="index">
       <view class="title">/{{item.cat_name}}/</view>
     <view class="brand">
-      <navigator url="" class="item" wx:for="{{item.children}}" wx:key="index">
+      <navigator url="/pages/goods_list/index?query={{item.cat_name}}" class="item" wx:for="{{item.children}}" wx:key="index">
           <image src="{{item.cat_icon}}"></image>
           <view class="item-text">{{item.cat_name}}</view>
       </navigator>
