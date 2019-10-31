@@ -32,6 +32,12 @@ Page({
       console.log(res.data)
       const { goods } = res.data.message
 
+      if(goods.length<10){
+        this.setData({
+          hasmore:false
+        })
+      }
+
       const newgoods = goods.map(v => {
         v.goods_price = Number(v.goods_price).toFixed(2)
         return v;
@@ -49,21 +55,21 @@ Page({
   onLoad: function (options) {
     const { query } = options
     this.setData({
-      query
+      query,
+      flag:false
     })
     // 获取列表
-    this.data.flag=false
     this.getlist()
 
   },
 
   // 触底事件
   onReachBottom() {
-    // this.data.flag=false
     if(this.data.flag){
       this.data.flag=false
       this.getlist();
     }
+
 
   },
 
