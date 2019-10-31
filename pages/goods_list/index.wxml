@@ -30,5 +30,7 @@
       </navigator>
   </view>
 
-  <text>加载中。。。。</text>
+  <view class="loading" wx:if="{{hasmore}}">加载中。。。。</view>
+  <view class="loading"wx:if="{{!hasmore}}">我是有底线的</view>
+
 </view>

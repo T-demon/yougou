@@ -57,3 +57,9 @@
 .text .price{
   color: red;
 }
+
+.loading{
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+}

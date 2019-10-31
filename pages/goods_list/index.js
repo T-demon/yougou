@@ -6,46 +6,73 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tab:["综合","销量","价格"],
-    current:0,
-    query:"",
-    list:[]
+    tab: ["综合", "销量", "价格"],
+    current: 0,
+    query: "",
+    list: [],
+    hasmore: true,
+    pagenum: 1,
+    flag:true
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    const {query} = options
-    this.setData({
-      query
-    })
+  getlist() {
 
+   if(this.data.flag){
+     return
+   }
+    
     request({
-      url:"https://api.zbztb.cn/api/public/v1/goods/search",
-      data:{
-        query,
-        pagenum:1,
-        pagesize:10
+      url: "https://api.zbztb.cn/api/public/v1/goods/search",
+      data: {
+        query: this.data.query,
+        pagenum: this.data.pagenum,
+        pagesize: 10
       }
-    }).then(res=>{
+    }).then(res => {
       console.log(res.data)
-      const {goods} = res.data.message
-      
-      const newgoods = goods.map(v=>{
-        v.goods_price=Number(v.goods_price).toFixed(2)
+      const { goods } = res.data.message
+
+      const newgoods = goods.map(v => {
+        v.goods_price = Number(v.goods_price).toFixed(2)
         return v;
       })
 
       this.setData({
-        list: newgoods
+        list: [...this.data.list, ...newgoods],
+        pagenum: this.data.pagenum + 1,
+        flag:true
       })
     })
+
   },
 
-  handleChange(event){
+  onLoad: function (options) {
+    const { query } = options
     this.setData({
-      current:event.target.dataset.index
+      query
+    })
+    // 获取列表
+    this.data.flag=false
+    this.getlist()
+
+  },
+
+  // 触底事件
+  onReachBottom() {
+    // this.data.flag=false
+    if(this.data.flag){
+      this.data.flag=false
+      this.getlist();
+    }
+
+  },
+
+
+
+
+  handleChange(event) {
+    this.setData({
+      current: event.target.dataset.index
     })
   }
 
