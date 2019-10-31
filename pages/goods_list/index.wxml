@@ -18,7 +18,7 @@
   <!--  -->
   <view class="goods-list">
       <navigator 
-      url="" 
+      url="/pages/goods_detail/index?goods_id={{item.goods_id}}" 
       class="goods-item" 
       wx:for="{{list}}" 
       wx:key="index">
