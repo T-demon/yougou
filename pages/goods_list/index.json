@@ -1,0 +1,7 @@
+{
+ "usingComponents": {
+  "search": "../../components/search/search",
+  "top": "../../components/top/top"
+},
+"navigationStyle": "custom"
+}

@@ -1,0 +1,28 @@
+<top/>
+<search/>
+
+<view class="content">
+  <!--  -->
+  <view class="screen">
+    <!-- <text class="active">综合</text>
+      <text>销量</text>
+      <text>价格</text> -->
+    <view wx:for="{{tab}}" wx:key="index" class="{{ current === index ? 'active': ''}}" bindtap="handleChange" data-index="{{index}}">
+      {{item}}
+    </view>
+  </view>
+
+  <!--  -->
+  <view class="goods-list">
+      <navigator url="" 
+      class="goods-item" 
+      wx:for="{{[1,1,1,1,1,1,1,1,1,1,1,1]}}" 
+      wx:key="index">
+        <image src="../../images/icon_home_active@3x.png" mode="aspectFill"></image>
+        <view class="text">
+          <text class="title">紫米啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</text>
+          <view class="price">￥66666</view>
+        </view>
+      </navigator>
+  </view>
+</view>
