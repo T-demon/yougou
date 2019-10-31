@@ -1,5 +1,8 @@
 <top/>
-<search/>
+<view class="header">
+  <input class="header-input" placeholder="{{query}}"/>
+</view>
+
 
 <view class="content">
   <!--  -->
@@ -14,15 +17,18 @@
 
   <!--  -->
   <view class="goods-list">
-      <navigator url="" 
+      <navigator 
+      url="" 
       class="goods-item" 
-      wx:for="{{[1,1,1,1,1,1,1,1,1,1,1,1]}}" 
+      wx:for="{{list}}" 
       wx:key="index">
-        <image src="../../images/icon_home_active@3x.png" mode="aspectFill"></image>
+        <image src="{{item.goods_small_logo}}" mode="aspectFill"></image>
         <view class="text">
-          <text class="title">紫米啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</text>
-          <view class="price">￥66666</view>
+          <text class="title">{{item.goods_name}}</text>
+          <view class="price">￥{{item.goods_price}}</view>
         </view>
       </navigator>
   </view>
+
+  <text>加载中。。。。</text>
 </view>
