@@ -6,7 +6,8 @@ Page({
    */
   data: {
     isshow: false,
-    search: ""
+    search: "",
+    keywords: wx.getStorageSync("search") || []
   },
 
   /**
@@ -45,7 +46,7 @@ Page({
 
     // 跳转到搜索列表页
     wx.navigateTo({
-      url: "/pages/goods_list/index?query=" + this.data.searchValue
+      url: "/pages/goods_list/index?query=" + this.data.search
     })
   }
 
