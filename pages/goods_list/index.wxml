@@ -1,8 +1,7 @@
 <top/>
-<view class="header">
-  <input class="header-input" placeholder="{{query}}"/>
-</view>
-
+<navigator url="/pages/search/index" class="header">
+    <view class="header-input" placeholder="{{query}}" />
+</navigator>
 
 <view class="content">
   <!--  -->
@@ -17,20 +16,16 @@
 
   <!--  -->
   <view class="goods-list">
-      <navigator 
-      url="/pages/goods_detail/index?goods_id={{item.goods_id}}" 
-      class="goods-item" 
-      wx:for="{{list}}" 
-      wx:key="index">
-        <image src="{{item.goods_small_logo}}" mode="aspectFill"></image>
-        <view class="text">
-          <text class="title">{{item.goods_name}}</text>
-          <view class="price">￥{{item.goods_price}}</view>
-        </view>
-      </navigator>
+    <navigator url="/pages/goods_detail/index?goods_id={{item.goods_id}}" class="goods-item" wx:for="{{list}}" wx:key="index">
+      <image src="{{item.goods_small_logo}}" mode="aspectFill"></image>
+      <view class="text">
+        <text class="title">{{item.goods_name}}</text>
+        <view class="price">￥{{item.goods_price}}</view>
+      </view>
+    </navigator>
   </view>
 
   <view class="loading" wx:if="{{hasmore}}">加载中。。。。</view>
-  <view class="loading"wx:if="{{!hasmore}}">我是有底线的</view>
+  <view class="loading" wx:if="{{!hasmore}}">我是有底线的</view>
 
 </view>
