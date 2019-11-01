@@ -7,7 +7,7 @@ Page({
   data: {
     isshow: false,
     search: "",
-    keywords: wx.getStorageSync("search") || []
+    keywords: []
   },
 
   /**
@@ -16,6 +16,12 @@ Page({
   onLoad: function (options) {
 
 
+  },
+
+  onShow() {
+    this.setData({
+      keywords: wx.getStorageSync("search") || []
+    })
   },
 
   // 触发输入框
@@ -34,7 +40,16 @@ Page({
     })
   },
 
-  handlleConfirm(){
+  // 清空搜索记录
+  handlereset() {
+    wx.removeStorageSync('search');
+
+    this.setData({
+      keywords: []
+    })
+  },
+
+  handlleConfirm() {
     // 先从本地存储拿出来数组，没有的等于空的数组
     const arr = wx.getStorageSync('search') || [];
 
