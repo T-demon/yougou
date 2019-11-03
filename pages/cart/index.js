@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    goods: null
+    goods: null,
+    selected: true
   },
 
   /**
@@ -78,21 +79,38 @@ Page({
     });
   },
 
-    bindChange(event){
-      // 获取输入框的值
-      const value = +event.detail.value;
-      const { id } = event.target.dataset;
-      const { goods } = this.data;
+  bindChange(event) {
+    // 获取输入框的值
+    const value = +event.detail.value;
+    const { id } = event.target.dataset;
+    const { goods } = this.data;
 
-      goods[id].number = value === 0 ? 1 : value;
+    goods[id].number = value === 0 ? 1 : value;
 
-      // 修改data的值
-      this.setData({
-        goods
-      });
-      // 保存到本地
-      wx.setStorageSync("goods", goods);
-    },
+    // 修改data的值
+    this.setData({
+      goods
+    });
+    // 保存到本地
+    wx.setStorageSync("goods", goods);
+  },
+
+  // 单个的选择按钮
+  handleSelected(event) {
+    const { id } = event.target.dataset;
+    const { goods } = this.data;
+
+    // 把选中状态取反
+    goods[id].selected = !goods[id].selected;
+
+    this.setData({
+      goods
+    });
+
+    // 保存到本地
+    wx.setStorageSync("goods", goods);
+  }
+
 
 
 })

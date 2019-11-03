@@ -32,7 +32,12 @@
     <view style="padding-bottom:100rpx">
       <view class="goods-item" wx:for="{{goods}}" wx:key="{{index}}">
 
-        <icon class="selected" type="success" size="18px" />
+        <icon class="selected" type="success" 
+        color="{{ item.selected ? 'red': 'gray' }}" 
+        size="16" 
+        bindtap="handleSelected" 
+        data-id="{{ item.goods_id }}">
+        </icon>
         <view class="goods-info">
           <image src="{{item.goods_small_logo}}" mode="aspectFill"></image>
           <!-- 商品的标题和价格 -->
@@ -48,12 +53,7 @@
               <view class="goods-numbers">
                 <!-- 数量减一 -->
                 <view class="goods-number-btn" bindtap="handledown" data-id="{{item.goods_id}}">-</view>
-                <input value="{{ item.number }}" 
-                bindchange="bindChange" 
-                bindinput="bindInput" 
-                data-id="{{item.goods_id}}" 
-                type="tel"
-                style="width:30px;line-height: 15px; text-align: center;">
+                <input value="{{ item.number }}" bindchange="bindChange" bindinput="bindInput" data-id="{{item.goods_id}}" type="tel" style="width:30px;line-height: 15px; text-align: center;">
                 </input>
                 <!-- 数量加一 -->
                 <view class="goods-number-btn" bindtap="handleadd" data-id="{{item.goods_id}}">+</view>
@@ -69,7 +69,7 @@
   <!--底部结算功能-->
   <view class="footer">
     <view class="icon">
-      <icon class="selected" type="success" size="18px" />
+      <icon class="selected" type="success" size="16px" />
       <text>全选</text>
     </view>
     <view class="price">
@@ -78,7 +78,7 @@
       <view style="font-size:12px; color:#999">包含运费</view>
     </view>
     <view class="resolve">
-      结算（3）
+      结算（）
     </view>
 
   </view>
