@@ -74,11 +74,11 @@
     </view>
     <view class="price">
       合计：
-      <text style="color:red;">￥666 </text>
+      <text style="color:red;">￥{{allPrice}}</text>
       <view style="font-size:12px; color:#999">包含运费</view>
     </view>
     <view class="resolve">
-      结算（）
+      结算（{{allNumber}}）
     </view>
 
   </view>

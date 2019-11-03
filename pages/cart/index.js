@@ -6,7 +6,9 @@ Page({
    */
   data: {
     goods: null,
-    selected: true
+    selected: true,
+    allPrice: 0,
+    allNumber: 0
   },
 
   /**
@@ -17,10 +19,14 @@ Page({
   },
 
   onShow() {
+
     const goods = wx.getStorageSync("goods") || null;
     this.setData({
       goods
     })
+    this.handleAllPrice(),
+    this.handleAllNumber()
+
   },
 
   // 数量加一
@@ -33,6 +39,7 @@ Page({
       goods
     })
     wx.setStorageSync("goods", goods)
+    this.handleAllPrice()
   },
 
   // 数量减一
@@ -51,6 +58,7 @@ Page({
               goods
             });
             wx.setStorageSync("goods", goods)
+            this.handleAllPrice()
           }
         }
       })
@@ -59,7 +67,9 @@ Page({
       this.setData({
         goods
       });
+
       wx.setStorageSync("goods", goods)
+      this.handleAllPrice()
     }
   },
 
@@ -109,8 +119,42 @@ Page({
 
     // 保存到本地
     wx.setStorageSync("goods", goods);
+    this.handleAllPrice();
+  },
+
+  // 计算总价
+  handleAllPrice() {
+    const { goods } = this.data
+    let price = 0;
+    // 总价=单价*数量
+    Object.keys(goods).forEach(v => {
+      // 选中的商品
+      if (goods[v].selected) {
+        price += (goods[v].goods_price * goods[v].number)
+      }
+    })
+
+    this.setData({
+      allPrice: price
+    })
+  },
+
+  // 计算总数量
+  handleAllNumber() {
+
+    const { goods } = this.data
+    let number;
+
+    Object.keys(goods).forEach(v=>{
+      if(goods[v].selected){
+        console.log(goods[v].number)
+        number += goods[v].number
+      }
+    })
+    this.setData({
+      allNumber:number
+    })
+
   }
-
-
 
 })
