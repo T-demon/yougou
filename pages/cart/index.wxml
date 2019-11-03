@@ -39,7 +39,7 @@
           <view class="goods-right">
             <!-- 标题 -->
             <view class="goods-title">
-                {{item.goods_name}}
+              {{item.goods_name}}
             </view>
             <!-- 价格和计算数量 -->
             <view class="goods-right-btm">
@@ -48,7 +48,13 @@
               <view class="goods-numbers">
                 <!-- 数量减一 -->
                 <view class="goods-number-btn" bindtap="handledown" data-id="{{item.goods_id}}">-</view>
-                <text>{{ item.number }}</text>
+                <input value="{{ item.number }}" 
+                bindchange="bindChange" 
+                bindinput="bindInput" 
+                data-id="{{item.goods_id}}" 
+                type="tel"
+                style="width:30px;line-height: 15px; text-align: center;">
+                </input>
                 <!-- 数量加一 -->
                 <view class="goods-number-btn" bindtap="handleadd" data-id="{{item.goods_id}}">+</view>
               </view>
@@ -67,11 +73,12 @@
       <text>全选</text>
     </view>
     <view class="price">
-        合计：<text style="color:red;">￥666 </text>
-        <view style="font-size:12px; color:#999">包含运费</view>
+      合计：
+      <text style="color:red;">￥666 </text>
+      <view style="font-size:12px; color:#999">包含运费</view>
     </view>
     <view class="resolve">
-    结算（3）
+      结算（3）
     </view>
 
   </view>

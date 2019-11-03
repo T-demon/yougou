@@ -26,7 +26,7 @@ Page({
   handleadd(event) {
     const { id } = event.target.dataset;
     const { goods } = this.data;
-    goods[id].number +=1;
+    goods[id].number += 1;
 
     this.setData({
       goods
@@ -35,16 +35,16 @@ Page({
   },
 
   // 数量减一
-  handledown(event){
+  handledown(event) {
     const { id } = event.target.dataset;
     const { goods } = this.data;
 
-    if(goods[id].number <=1){
+    if (goods[id].number <= 1) {
       wx.showModal({
         title: '提示',
         content: '是否删除该商品',
-        success:(res)=>{
-          if(res.confirm){
+        success: (res) => {
+          if (res.confirm) {
             delete goods[id];
             this.setData({
               goods
@@ -53,13 +53,46 @@ Page({
           }
         }
       })
-    }else{
-      goods[id].number -=1;
+    } else {
+      goods[id].number -= 1;
       this.setData({
         goods
       });
       wx.setStorageSync("goods", goods)
     }
-  }
+  },
+
+  //数量输入控制
+  bindInput(event) {
+    // 获取输入框的值
+    const value = +event.detail.value;
+    const { id } = event.target.dataset;
+    const { goods } = this.data;
+
+    // 判断是否有小数点
+    goods[id].number = Math.floor(value);
+
+    // 修改data的值
+    this.setData({
+      goods
+    });
+  },
+
+    bindChange(event){
+      // 获取输入框的值
+      const value = +event.detail.value;
+      const { id } = event.target.dataset;
+      const { goods } = this.data;
+
+      goods[id].number = value === 0 ? 1 : value;
+
+      // 修改data的值
+      this.setData({
+        goods
+      });
+      // 保存到本地
+      wx.setStorageSync("goods", goods);
+    },
+
 
 })

@@ -12,6 +12,7 @@
   padding-right:100rpx;
   position: relative;
   font-size: 14px;
+ 
 }
 
 .address-info::after{
