@@ -8,7 +8,8 @@ Page({
     goods: null,
     selected: true,
     allPrice: 0,
-    allNumber: 0
+    allNumber: 0,
+    allSelected: true
   },
 
   /**
@@ -24,9 +25,8 @@ Page({
     this.setData({
       goods
     })
-    this.handleAllPrice(),
-    this.handleAllNumber()
-
+    this.handleAllPrice()
+    this.handleAllSelected()
   },
 
   // 数量加一
@@ -120,6 +120,8 @@ Page({
     // 保存到本地
     wx.setStorageSync("goods", goods);
     this.handleAllPrice();
+    this.handleAllSelected()
+    
   },
 
   // 计算总价
@@ -139,21 +141,39 @@ Page({
     })
   },
 
-  // 计算总数量
-  handleAllNumber() {
+  // 全选状态
+  handleAllSelected() {
+    const { goods } = this.data;
+    let isSelect = true;
 
-    const { goods } = this.data
-    let number;
-
-    Object.keys(goods).forEach(v=>{
-      if(goods[v].selected){
-        console.log(goods[v].number)
-        number += goods[v].number
+    // 判断是否有一个是没选中
+    Object.keys(goods).forEach(v => {
+      if (!goods[v].selected) {
+        isSelect = false;
       }
     })
+
     this.setData({
-      allNumber:number
+      allSelected: isSelect
     })
+  },
+  // 全选按钮
+  handleAllSelectedEvent() {
+    const { goods, allSelected } = this.data
+
+    Object.keys(goods).forEach(v => {
+      goods[v].selected = !allSelected
+    })
+
+    this.setData({
+      goods,
+      // 判断全选状态
+      allSelected: !allSelected
+    });
+
+    wx.setStorageSync("goods", goods);
+    // 计算总价格
+    this.handleAllPrice();
 
   }
 

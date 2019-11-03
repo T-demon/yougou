@@ -32,11 +32,7 @@
     <view style="padding-bottom:100rpx">
       <view class="goods-item" wx:for="{{goods}}" wx:key="{{index}}">
 
-        <icon class="selected" type="success" 
-        color="{{ item.selected ? 'red': 'gray' }}" 
-        size="16" 
-        bindtap="handleSelected" 
-        data-id="{{ item.goods_id }}">
+        <icon class="selected" type="success" color="{{ item.selected ? 'red': 'gray' }}" size="16" bindtap="handleSelected" data-id="{{ item.goods_id }}">
         </icon>
         <view class="goods-info">
           <image src="{{item.goods_small_logo}}" mode="aspectFill"></image>
@@ -68,9 +64,8 @@
 
   <!--底部结算功能-->
   <view class="footer">
-    <view class="icon">
-      <icon class="selected" type="success" size="16px" />
-      <text>全选</text>
+    <view class="icon" bindtap="handleAllSelectedEvent">
+      <icon type="success" color="{{ allSelected ? 'red' : 'gray' }}" size="16"></icon> 全选
     </view>
     <view class="price">
       合计：
