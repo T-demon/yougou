@@ -51,6 +51,9 @@ Page({
     console.log(goods)
     wx.setStorageSync("goods", goods)
 
+wx.showToast({
+  title: '加入购物车成功',
+})
   }
 
 })
