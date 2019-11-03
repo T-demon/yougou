@@ -7,7 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    detail:{}
+    detail:{},
+    goods:{}
   },
 
   /**
@@ -31,5 +32,9 @@ Page({
       })
     })
   },
+
+  handlecart(){
+    const goods = wx.getStorageInfoSync("goods") || {}
+  }
 
 })

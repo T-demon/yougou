@@ -1,2 +1,76 @@
-<!--pages/cart/index.wxml-->
-<text>pages/cart/index.wxml</text>
+<top/>
+<view class="main">
+  <!-- 信息栏 -->
+  <view class="address">
+
+    <!-- 如果有收货地址才显示 -->
+    <view>
+      <view class="address-info">
+        <text>收货人：收个锤子</text>
+        <text>10086</text>
+      </view>
+
+      <view class="address-text">
+        收货地址：津安创意园58号
+      </view>
+    </view>
+
+    <!-- 获取收货地址的按钮 -->
+    <view wx:if="{{false}}">添加收货地址</view>
+
+    <image class="border" src="../../images/cart_border@2x.png"></image>
+  </view>
+
+  <view class="cart-title">
+    <view class="iconfont icon-dianpu"></view>
+    <text>购物车列表</text>
+  </view>
+  <!-- 商品栏 -->
+  <view wx:for="{{[1]}}" wx:key="{{index}}">
+    <view style="padding-bottom:100rpx">
+      <view class="goods-item" wx:for="{{ [1,1,1,1,1,1,1] }}" wx:key="{{index}}">
+
+        <icon class="selected" type="success" size="18px" />
+        <view class="goods-info">
+          <image src="http://img5.imgtn.bdimg.com/it/u=3467856263,3271438918&fm=26&gp=0.jpg" mode="aspectFill"></image>
+          <!-- 商品的标题和价格 -->
+          <view class="goods-right">
+            <!-- 标题 -->
+            <view class="goods-title">
+              六味地黄丸 六味地黄丸 六味地黄丸 六味地黄丸 六味地黄丸 六味地黄丸
+            </view>
+            <!-- 价格和计算数量 -->
+            <view class="goods-right-btm">
+              <view class="goods-price">￥999</view>
+              <!-- 计算数量 -->
+              <view class="goods-numbers">
+                <!-- 数量减一 -->
+                <view class="goods-number-btn">-</view>
+                <text>1</text>
+                <!-- 数量加一 -->
+                <view class="goods-number-btn">+</view>
+              </view>
+            </view>
+          </view>
+
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!--底部结算功能-->
+  <view class="footer">
+    <view class="icon">
+      <icon class="selected" type="success" size="18px" />
+      <text>全选</text>
+    </view>
+    <view class="price">
+        合计：<text style="color:red;">￥666 </text>
+        <view style="font-size:12px; color:#999">包含运费</view>
+    </view>
+    <view class="resolve">
+    结算（3）
+    </view>
+
+  </view>
+</view>

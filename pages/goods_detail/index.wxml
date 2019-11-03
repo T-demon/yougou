@@ -12,10 +12,10 @@
 <view class="goods-info">
   <view class="goods-price">￥{{detail.goods_price}}</view>
 
-   <!-- 标题部分 -->
+  <!-- 标题部分 -->
   <view class="goods-title">
     <view class="goods-title-left">
-     {{detail.goods_name}}
+      {{detail.goods_name}}
     </view>
 
     <view class="goods-star">
@@ -39,10 +39,11 @@
     <view>购物车</view>
   </navigator>
 
+  <navigator class="btn-right" bindtap="handlecart" url="pages/cart/index" open-type="switchTab">
+      加入购物车
+  </navigator>
+  
   <view class="btn-right">
-    加入购物车
-  </view>
-   <view class="btn-right">
     立即购买
   </view>
-</view> 
+</view>

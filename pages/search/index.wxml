@@ -4,7 +4,7 @@
 <view class="search-wrapper">
   <view class="search-input">
     <icon type="search" size="14"></icon>
-    <input placeholder="请输入您想要的商品" bindinput="handleInput" value="{{search}}" bindconfirm="handlleConfirm"> >
+    <input placeholder="请输入您想要的商品" bindinput="handleInput" value="{{search}}" bindconfirm="handlleConfirm"> 
     </input>
   </view>
 
