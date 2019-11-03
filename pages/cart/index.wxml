@@ -25,28 +25,30 @@
     <view class="iconfont icon-dianpu"></view>
     <text>购物车列表</text>
   </view>
+
+
   <!-- 商品栏 -->
   <view wx:for="{{[1]}}" wx:key="{{index}}">
     <view style="padding-bottom:100rpx">
-      <view class="goods-item" wx:for="{{ [1,1,1,1,1,1,1] }}" wx:key="{{index}}">
+      <view class="goods-item" wx:for="{{goods}}" wx:key="{{index}}">
 
         <icon class="selected" type="success" size="18px" />
         <view class="goods-info">
-          <image src="http://img5.imgtn.bdimg.com/it/u=3467856263,3271438918&fm=26&gp=0.jpg" mode="aspectFill"></image>
+          <image src="{{item.goods_small_logo}}" mode="aspectFill"></image>
           <!-- 商品的标题和价格 -->
           <view class="goods-right">
             <!-- 标题 -->
             <view class="goods-title">
-              六味地黄丸 六味地黄丸 六味地黄丸 六味地黄丸 六味地黄丸 六味地黄丸
+                {{item.goods_name}}
             </view>
             <!-- 价格和计算数量 -->
             <view class="goods-right-btm">
-              <view class="goods-price">￥999</view>
+              <view class="goods-price">￥{{ item.goods_price }}</view>
               <!-- 计算数量 -->
               <view class="goods-numbers">
                 <!-- 数量减一 -->
                 <view class="goods-number-btn">-</view>
-                <text>1</text>
+                <text>{{ item.number }}</text>
                 <!-- 数量加一 -->
                 <view class="goods-number-btn">+</view>
               </view>

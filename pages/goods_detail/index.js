@@ -34,19 +34,22 @@ Page({
   },
 
   handlecart() {
-    const goods = wx.getStorageInfoSync("goods") || {}
+
+    const goods = wx.getStorageSync("goods") || {}
     const { goods_id, goods_name, goods_small_logo, goods_price } = this.data.detail;
+    const number = goods[goods_id] ? goods[goods_id].number + 1 : 1;
+   
 
     goods[goods_id] = {
       goods_id,
       goods_name,
       goods_small_logo,
       goods_price,
-      number: 1,
+      number,
       selected: true
     }
-
-wx.setStorageSync("goods", goods)
+    console.log(goods)
+    wx.setStorageSync("goods", goods)
 
   }
 
