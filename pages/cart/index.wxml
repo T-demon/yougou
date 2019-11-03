@@ -47,10 +47,10 @@
               <!-- 计算数量 -->
               <view class="goods-numbers">
                 <!-- 数量减一 -->
-                <view class="goods-number-btn">-</view>
+                <view class="goods-number-btn" bindtap="handledown" data-id="{{item.goods_id}}">-</view>
                 <text>{{ item.number }}</text>
                 <!-- 数量加一 -->
-                <view class="goods-number-btn">+</view>
+                <view class="goods-number-btn" bindtap="handleadd" data-id="{{item.goods_id}}">+</view>
               </view>
             </view>
           </view>
