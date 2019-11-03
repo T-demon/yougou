@@ -27,6 +27,7 @@ Page({
     })
     this.handleAllPrice()
     this.handleAllSelected()
+    this.handleNumber()
   },
 
   // 数量加一
@@ -40,6 +41,7 @@ Page({
     })
     wx.setStorageSync("goods", goods)
     this.handleAllPrice()
+    this.handleNumber()
   },
 
   // 数量减一
@@ -70,6 +72,7 @@ Page({
 
       wx.setStorageSync("goods", goods)
       this.handleAllPrice()
+      this.handleNumber()
     }
   },
 
@@ -87,6 +90,7 @@ Page({
     this.setData({
       goods
     });
+    this.handleNumber()
   },
 
   bindChange(event) {
@@ -156,6 +160,7 @@ Page({
     this.setData({
       allSelected: isSelect
     })
+    this.handleNumber()
   },
   // 全选按钮
   handleAllSelectedEvent() {
@@ -174,6 +179,22 @@ Page({
     wx.setStorageSync("goods", goods);
     // 计算总价格
     this.handleAllPrice();
+    this.handleNumber()
+
+  },
+
+  // 计算总数
+  handleNumber(){
+    const { goods } = this.data
+    let num = 0
+    Object.keys(goods).forEach(v=>{
+      if(goods[v].selected){
+        num += goods[v].number
+      }
+    })
+    this.setData({
+      allNumber:num
+    })
 
   }
 
