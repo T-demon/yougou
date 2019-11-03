@@ -7,8 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    detail:{},
-    goods:{}
+    detail: {},
+    goods: {}
   },
 
   /**
@@ -33,8 +33,21 @@ Page({
     })
   },
 
-  handlecart(){
+  handlecart() {
     const goods = wx.getStorageInfoSync("goods") || {}
+    const { goods_id, goods_name, goods_small_logo, goods_price } = this.data.detail;
+
+    goods[goods_id] = {
+      goods_id,
+      goods_name,
+      goods_small_logo,
+      goods_price,
+      number: 1,
+      selected: true
+    }
+
+wx.setStorageSync("goods", goods)
+
   }
 
 })
